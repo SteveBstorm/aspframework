@@ -1,0 +1,24 @@
+﻿@using WebSite.Utils
+<h2>Bienvenue sur Cheap Movie DB</h2>
+
+<h4 class="alert-danger">@ViewBag.ErrorMessage</h4>
+
+<p class="text-success">@SessionTool.message</p>
+@{ SessionTool.setMessageNull();}
+  
+@if (SessionTool.user != null)
+  {
+    <p>Salut, @SessionTool.user.Login ! Amuses toi bien !</p>
+}
+else
+{
+    <p>
+        @Html.ActionLink("Inscription", "Inscription", "Home")
+    </p>
+    <p>@Html.ActionLink("Connexion", "Login", "Home")</p>
+}
+
+
+<p>@Html.ActionLink("Liste des films", "ListFilm", "Home")</p>
+<h2>Index</h2>
+

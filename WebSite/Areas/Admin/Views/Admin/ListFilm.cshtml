@@ -1,0 +1,33 @@
+﻿@model IEnumerable<WebSite.Models.Film>
+
+@{
+    ViewBag.Title = "Liste des Films";
+}
+
+<h2>ListFilm</h2>
+
+<p>
+    @Html.ActionLink("Ajouter", "CreateFilm")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titre)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Titre)
+        </td>
+        <td>
+            @Html.ActionLink("Modifier", "EditFilm", new { id=item.Id }) |
+            @Html.ActionLink("Vue détaillée", "DetailFilm", new { id=item.Id }) |
+            @Html.ActionLink("Supprimer", "DeleteFilm", new { id=item.Id })
+        </td>
+    </tr>
+}
+
+</table>

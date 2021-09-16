@@ -1,0 +1,30 @@
+﻿@model WebSite.Models.Film
+
+
+<div>
+    <h3>@Model.Titre</h3>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AnneeDeSortie)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AnneeDeSortie)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Modifier", "EditFilm", new { id = Model.Id }) |
+    @Html.ActionLink("Liste", "ListFilm")
+</p>

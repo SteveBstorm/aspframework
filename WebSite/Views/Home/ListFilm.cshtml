@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebSite.Models.Film>
+@using WebSite.Utils
+
+@{
+    ViewBag.Title = "ListFilm";
+}
+
+<h2>ListFilm</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Titre)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Titre)
+    </td>
+
+    @if (SessionTool.user != null)
+    {
+        <td>
+            @Html.ActionLink("Details", "FilmDetails", new { id = item.Id })
+        </td>
+    }
+    
+</tr>
+}
+
+</table>
